@@ -3,20 +3,24 @@ import './App.css';
 import './index.css'
 import Button from './components/Button';
 import Counter from './components/Countner';
-// import { useState } from 'react';
+
+
+const text = [
+  "Click me", 
+  "Click me please",
+  "Hit me",
+  "Press me",
+]
 
 function App() {
   const [count, setCount] = useState(0)
-  const intrementCount = () => {
+  const incrementCount = () => {
     setCount(count + 1)
   }
   return (
     <div className="App">
       <Counter count={count} />
-      <Button onClick={intrementCount} />
-      <Button onClick={intrementCount} />
-      <Button onClick={intrementCount} />
-      <Button onClick={intrementCount} />
+      {text.map((text, index) => {return <Button onClick={incrementCount} text={text} key={index} />})}
     </div>
   );
 }
